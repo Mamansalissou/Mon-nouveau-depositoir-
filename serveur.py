@@ -1,7 +1,7 @@
 import os
 from flask import Flask, request, jsonify
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 # Dossier où les fichiers envoyés seront enregistrés
 DOSSIER_UPLOAD = "uploads"
@@ -24,5 +24,5 @@ def upload_file():
     # Confirmation de l'enregistrement
     return jsonify({"message": "Fichier reçu et enregistré avec succès", "file_path": file_path}), 200
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     app.run(debug=True, port=5000)

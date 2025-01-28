@@ -6,7 +6,7 @@ from datetime import datetime
 app = Flask(__name__)
 
 # URL du serveur pour l'envoi du fichier
-URL_SERVEUR = "http://192.168.95.114:5000/upload"
+URL_SERVEUR = "http://127.0.0.1:5000/upload"
 
 # Dictionnaire des plats et des quartiers
 plats = {
