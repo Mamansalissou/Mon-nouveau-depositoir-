@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Commandes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1 class="caption">Liste des Commandes</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Plat</th>
+                <th>Nombre de plats</th>
+                <th>Total Plat</th>
+                <th>Livraison</th>
+                <th>Quartier</th>
+                <th>Distance (km)</th>
+                <th>Frais Livraison</th>
+                <th>Numéro de Téléphone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for commande in commandes %}
+            <tr>
+                <td>{{ commande.plat }}</td>
+                <td>{{ commande.nombre_plats }}</td>
+                <td>{{ commande.total_plat }} FCFA</td>
+                <td>{{ commande.livraison }}</td>
+                <td>{{ commande.quartier }}</td>
+                <td>{{ commande.distance_km }}</td>
+                <td>{{ commande.frais_livraison }} FCFA</td>
+                <td>{{ commande.numero_telephone }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

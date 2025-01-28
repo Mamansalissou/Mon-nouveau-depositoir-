@@ -1,0 +1,84 @@
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('{{ url_for('static', filename='background.jpg') }}') no-repeat center center fixed;
+    background-size: cover;
+    color: #000;
+}
+
+/* En-tête */
+.header {
+    background-color: rgba(255, 99, 71, 0.8); /* Couleur semi-transparente */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid #e5533c;
+}
+
+.logo {
+    width: 100px;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+/* Titres */
+h1, h2 {
+    margin: 10px 0;
+}
+
+/* Section des menus */
+.menu {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Formulaires */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label, input, select, button {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Boutons */
+button {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #e5533c;
+}
+
+/* Pied de page */
+footer {
+    text-align: center;
+    padding: 6px;
+    background-color: rgba(255, 99, 71, 0.8);
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 0px solid #e5533c;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résumé de la Commande</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Résumé de votre commande</h1>
+    <p>Plat choisi : {{ plat }}</p>
+    <p>Nombre de plats : {{ nombre_plats }}</p>
+    <p>Total (plat) : {{ total_plat }} FCFA</p>
+    <p>Numéro de téléphone pour la livraison : {{ numero_telephone }}</p>
+    {% if frais_livraison > 0 %}
+        <p>Frais de livraison : {{ frais_livraison }} FCFA</p>
+        <p>Distance : {{ distance_km }} km</p>
+        <p>Livraison à : {{ quartier }}</p>
+    {% else %}
+        <p>Aucune livraison n'a été choisie.</p>
+    {% endif %}
+    
+    <a href="/">Retour à la commande</a>
+</body>
+</html>

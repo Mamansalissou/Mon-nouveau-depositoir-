@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commande Plat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function toggleLivraison() {
+            const livraisonOptions = document.getElementById("livraison-options");
+            const choixLivraison = document.getElementById("choix-livraison").value;
+            livraisonOptions.style.display = choixLivraison === "OUI" ? "block" : "none";
+        }
+
+        window.onload = function() {
+            toggleLivraison();
+        };
+    </script>
+</head>
+<body>
+    <header class="header">
+        <h1>Bienvenue sur notre site de commande</h1>
+    </header>
+
+    <div class="menu">
+        <h2>Commande de plats</h2>
+        <form method="POST">
+            <label for="choix_plat">Choisissez un plat :</label>
+            <select name="choix_plat" id="choix_plat">
+                {% for plat, prix in plats.items() %}
+                    <option value="{{ plat }}">{{ plat }} - {{ prix }} FCFA</option>
+                {% endfor %}
+            </select>
+
+            <label for="nombre_plats">Nombre de plats :</label>
+            <input type="number" name="nombre_plats" id="nombre_plats" min="1" required>
+
+            <label for="numero_telephone">Numéro de téléphone :</label>
+            <input type="tel" id="numero_telephone" name="numero_telephone" required><br><br>
+
+            <label for="choix-livraison">Voulez-vous une livraison ?</label>
+            <select name="livraison" id="choix-livraison" onchange="toggleLivraison()">
+                <option value="NON" selected>NON</option>
+                <option value="OUI">OUI</option>
+            </select>
+
+            <div id="livraison-options" style="display: none;">
+                <label for="quartier">Choisissez votre quartier :</label>
+                <select name="quartier" id="quartier">
+                    {% for quartier, distance in quartiers.items() %}
+                        <option value="{{ quartier }}">{{ quartier }} - {{ distance }} km</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <button type="submit">Valider la commande</button>
+        </form>
+    </div>
+</body>
+</html>
